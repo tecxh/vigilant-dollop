@@ -1,10 +1,11 @@
 import { mockAlbums } from "../../mocks/albumMocks";
 
 interface AlbumListProps {
-  onSave: (albumId: string) => void;
+  onSave?: (albumId: string) => void;
+  editable?: boolean;
 }
 
-export const AlbumList = ({ onSave }: AlbumListProps) => {
+export const AlbumList = ({ onSave, editable = false }: AlbumListProps) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 20 }}>
@@ -15,7 +16,9 @@ export const AlbumList = ({ onSave }: AlbumListProps) => {
           <div style={{ backgroundColor: 'black', padding: 16 }}>
             <p>{`${title} - ${artist}`}</p>
             <p>{`Track length: ${numberOfTracks}`}</p>
-            <button onClick={() => onSave(_id)} style={{ backgroundColor: 'pink' }}>save</button>
+            {editable && onSave && (
+              <button onClick={() => onSave(_id)} style={{ backgroundColor: 'pink' }}>save</button>
+            )}
           </div>
         )
       })}

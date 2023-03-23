@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SongList onSave={handleContentSave} />
-        <AlbumList onSave={handleContentSave} />
+        <SongList editable onSave={handleContentSave} />
+        <AlbumList editable onSave={handleContentSave} />
       </header>
     </div>
   );
