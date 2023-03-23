@@ -1,15 +1,17 @@
 import { mockAlbums } from "../../mocks/albumMocks";
+import { Album } from "../../types";
 
 interface AlbumListProps {
   onSave?: (albumId: string) => void;
   editable?: boolean;
+  albums: Album[];
 }
 
-export const AlbumList = ({ onSave, editable = false }: AlbumListProps) => {
+export const AlbumList = ({ albums, onSave, editable = false }: AlbumListProps) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 20 }}>
-      {mockAlbums.map((album) => {
+      {albums.map((album) => {
         const { title, artist, numberOfTracks, _id } = album;
 
         return (

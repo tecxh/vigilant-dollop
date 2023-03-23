@@ -1,14 +1,16 @@
 import { mockSongs } from '../../mocks';
+import { Song } from '../../types';
 
 interface SongListProps {
   onSave?: (songId: string) => void;
   editable?: boolean;
+  songs: Song[]
 }
 
-export const SongList = ({ onSave, editable = false }: SongListProps) => {
+export const SongList = ({ songs, onSave, editable = false }: SongListProps) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 20 }}>
-      {mockSongs.map((song) => {
+      {songs.map((song) => {
         const { title, artist, _id } = song;
 
         return (

@@ -1,5 +1,6 @@
 import './App.css';
 import { AlbumList, SongList } from './components';
+import { mockSongs, mockAlbums } from './mocks';
 
 function App() {
   const handleContentSave = (contentId: string) => {
@@ -9,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SongList editable onSave={handleContentSave} />
-        <AlbumList editable onSave={handleContentSave} />
+        <SongList songs={mockSongs} editable onSave={handleContentSave} />
+        <AlbumList albums={mockAlbums} editable onSave={handleContentSave} />
       </header>
     </div>
   );
