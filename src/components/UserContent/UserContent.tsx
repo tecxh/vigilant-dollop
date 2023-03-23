@@ -1,5 +1,5 @@
 import { useMachine } from "@xstate/react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { UserContext } from "../../context/userContext";
 import { AlbumList } from "../AlbumList"

@@ -1,4 +1,3 @@
-import { mockSongs } from '../../mocks';
 import { Song } from '../../types';
 
 interface SongListProps {

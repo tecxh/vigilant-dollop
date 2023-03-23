@@ -1,4 +1,3 @@
-import { mockAlbums } from "../../mocks/albumMocks";
 import { Album } from "../../types";
 
 interface AlbumListProps {
