@@ -1,5 +1,5 @@
 import './App.css';
-import { AlbumList, SongList } from './components';
+import { AlbumList, SongList, UserContent } from './components';
 import { mockSongs, mockAlbums } from './mocks';
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <SongList songs={mockSongs} editable onSave={handleContentSave} />
         <AlbumList albums={mockAlbums} editable onSave={handleContentSave} />
       </header>
+      <UserContent />
     </div>
   );
 }
