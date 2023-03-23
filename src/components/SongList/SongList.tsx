@@ -1,19 +1,24 @@
 import { mockSongs } from '../../mocks';
+import { Song } from '../../types';
 
 interface SongListProps {
-  onSave: (songId: string) => void;
+  onSave?: (songId: string) => void;
+  editable?: boolean;
+  songs: Song[]
 }
 
-export const SongList = ({ onSave }: SongListProps) => {
+export const SongList = ({ songs, onSave, editable = false }: SongListProps) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 20 }}>
-      {mockSongs.map((song) => {
+      {songs.map((song) => {
         const { title, artist, _id } = song;
 
         return (
           <div key={_id} style={{ backgroundColor: 'black', padding: 16 }}>
             <p>{`${title} - ${artist}`}</p>
-            <button onClick={() => onSave(_id)} style={{ backgroundColor: 'pink' }}>save</button>
+            {editable && onSave && (
+              <button onClick={() => onSave(_id)} style={{ backgroundColor: 'pink' }}>save</button>
+            )}
           </div>
         )
       })}
